@@ -1,0 +1,36 @@
+{% extends 'artigos/layout.html' %}
+{% block title %}Comentários - Reddit da Feira{% endblock %}
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'artigos/estilos.css' %}">
+    <style>
+      {% block style %}
+      {% endblock %}
+    </style>
+    <h2>Comentários para o Post "{{ post.titulo }}"</h2>
+    <hr>
+        {% for comment in comments %}
+            <div>
+                <p><strong>{{ comment.autor }}</strong> - Rating: {{ comment.get_rating_display }}</p>
+                <p>{{ comment.texto }}</p>
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'artigos:editaComment' comment.id %}">
+                        <button>Edita Comentário</button>
+                    </a>
+                    <a href="{% url 'artigos:apagaComment' comment.id %}">
+                        <button>Apagar o Comentário</button>
+                    </a>
+                {% endif %}
+            </div>
+            <hr>
+        {% endfor %}
+
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'artigos:criaComment' %}">
+            <button>Inserir novo Comentário</button>
+        </a>
+    {% endif %}
+
+    <a href="{% url 'artigos:posts' %}" class = "links">Voltar para os Posts</a>
+
+{% endblock %}

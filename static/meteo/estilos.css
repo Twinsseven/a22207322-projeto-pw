@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* Garante que o body ocupa no mínimo a altura total da viewport */
+    display: flex;
+    flex-direction: column;
+}
+
+.contentor {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "content";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr; /* Altura automática para header, espaço flexível para conteúdo */
+    height: 100%; /* Garante que o .contentor ocupe todo o espaço vertical disponível */
+    width: 100%; /* Ocupa toda a largura */
+    overflow: hidden; /* Previne overflow inesperado */
+}
+header {
+    display: flex;
+    justify-content: space-between; /* Espaçamento igual entre os elementos */
+    align-items: center;
+    background-color: green;
+    color: white;
+    padding: 20px;
+}
+
+h1 {
+    flex: 1 0 auto; /* O título ocupa espaço flexível no meio */
+    text-align: center; /* Centraliza o texto do título */
+    margin: 0; /* Remove margens padrão para garantir o alinhamento */
+    padding: 0 20px; /* Espaço para não sobrepor nos botões */
+}
+
+.button {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 16px;
+}
+
+
+footer {
+    background-color: green;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    margin-top: auto; /* Coloca o footer no final da página */
+}
+
+
+.weather-box {
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: center; /* Certifique-se que os itens estão alinhados verticalmente */
+    justify-content: space-between; /* Espaço entre as informações e a imagem */
+    margin-bottom: 20px;
+}
+
+.weather-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Permite que o texto ocupe o espaço necessário à esquerda */
+}
+
+.weather-info p {
+    margin: 5px 0; /* Espaçamento entre os parágrafos */
+}
+
+.weather-icon {
+    width: 200px;
+    height: 200px;
+    margin-left: 20px;
+}
+
+.endpoint {
+    margin-bottom: 20px;
+}
+.parametros {
+    margin-left: 20px;
+}
+code {
+    background-color: #f4f4f4;
+    padding: 2px 4px;
+    border-radius: 4px;
+}

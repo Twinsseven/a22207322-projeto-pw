@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Portfolio{% endblock %}</title>
+    {% load static %}
+    <script src="https://kit.fontawesome.com/4c944539b7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'portfolio/estilos.css' %}">
+</head>
+<body>
+    <div class="contentor">
+        <header>
+            <nav>
+                <div class="left-items">
+                    <ul>
+                        <li><a href="{% url 'portfolio:landing-page' %}"><i class="fa-solid fa-house"></i>Home</a></li>
+                        <li><a href="{% url 'portfolio:mebyme' %}"><i class="fa-solid fa-user"></i>Sobre Mim</a></li>
+                        <li><a href="{% url 'portfolio:sobre' %}"><i class="fa-solid fa-code"></i>TechTools</a></li>
+                        <img src="{{ icone }}" alt="Ícone do Tempo" class="weather-icon">
+                    </ul>
+                </div>
+                <div class="right-items">
+                    <div class="dropdown">
+                        <button class="dropbtn">Outros Sites</button>
+                        <div class="dropdown-content">
+                            <a href="https://a22207322.pythonanywhere.com/bandas/">Bandas</a>
+                            <a href="https://a22207322.pythonanywhere.com/artigos/">Artigos</a>
+                            <a href="https://a22207322.pythonanywhere.com/curso/">Curso</a>
+                            <a href="https://a22207322.pythonanywhere.com/meteo/">Meteo</a>
+                        </div>
+                    </div>
+                    <div id="date-time"></div>
+                    <button id="dark-mode-toggle">
+                        <i class="fa-solid fa-sun" id="sun-icon"></i>
+                        <i class="fa-solid fa-moon hidden" id="moon-icon"></i>
+                    </button>
+                </div>
+            </nav>
+        </header>
+        <div class="content">
+            {% block content %}
+            <div class="contentorSobre">
+                <section id="technology">
+                    <h2>Tecnologias Utilizadas</h2>
+                    <ul>
+                        <li>Django</li>
+                        <li>Python</li>
+                        <li>Html</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </section>
+                <section id="django-video">
+                    <h2>Vídeo "Django Hands-On"</h2>
+                </section>
+                <section id="guided-tour">
+                    <h2>Visita Guiada ao Projeto Django</h2>
+                </section>
+            </div>
+            {% endblock %}
+        </div>
+    </div>
+    <script src="{% static 'portfolio/scripts.js' %}"></script>
+</body>
+</html>

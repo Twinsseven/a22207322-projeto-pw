@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Título Padrão{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'bandas/estilos.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/4c944539b7.js" crossorigin="anonymous"></script>
+    <style>
+      {% block style %}
+      {% endblock %}
+    </style>
+
+</head>
+<body>
+
+    <div class = contentor>
+        <header id="tituloSite">
+            <h1>Melhores Músicas</h1>
+            <div class="login">
+                {% if not request.user.is_authenticated %}
+                    <a href="{% url 'bandas:registo' %}" class="register-button">Registar</a>
+                    <a href="{% url 'bandas:login' %}" class="login-button">Login</a>
+                {% else %}
+                    <p>Olá, {{ request.user.username }}!</p>
+                    <a href="{% url 'bandas:logout' %}" class="logout-button">Logout</a>
+                {% endif %}
+            </div>
+        </header>
+
+
+        <nav>
+            <a href="{% url 'bandas:bandas' %}" class="botao-inicio"><p><i class="fa-solid fa-house"></i> Home</p></a>
+        </nav>
+
+
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Programação Web, Universidade Lusófona - Todos os direitos reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>

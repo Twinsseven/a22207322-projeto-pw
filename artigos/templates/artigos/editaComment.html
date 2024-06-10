@@ -1,0 +1,14 @@
+{% extends 'artigos/layout.html' %}
+
+{% block title %}Edita Comentário{% endblock %}
+
+{% block content %}
+    <h3>Edita Comentário</h3>
+
+    <form action="{% url 'artigos:editaComment' comentario.id %}" method="post" enctype='multipart/form-data'>
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit">
+    </form>
+
+{% endblock %}

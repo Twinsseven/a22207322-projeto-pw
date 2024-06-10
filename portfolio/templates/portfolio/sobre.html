@@ -1,0 +1,33 @@
+{% extends "portfolio/layout.html" %}
+
+{% block title %}Portfolio{% endblock %}
+
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'portfolio/estilos.css' %}">
+    <style>
+      {% block style %}
+      {% endblock %}
+    </style>
+    <div class = "contentorSobre">
+        <section id="technology">
+        <h2>Tecnologias Utilizadas</h2>
+        <ul>
+            <li>Django</li>
+            <li>Python</li>
+            <li>Html</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+        </ul>
+        </section>
+
+        <section id="django-video">
+            <h2>Vídeo "Django Hands-On"</h2>
+        </section>
+
+        <section id="guided-tour">
+            <h2>Visita Guiada ao Projeto Django</h2>
+        </section>
+    </div>
+
+{% endblock %}

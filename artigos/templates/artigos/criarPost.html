@@ -1,0 +1,31 @@
+{% extends 'artigos/layout.html' %}
+
+{% block title %}Criar Post{% endblock %}
+
+{% block content %}
+
+    <style>
+        .links {
+            color: blue;
+            text-decoration: none;
+            display: block;
+            font-weight: bold;
+        }
+        .errorlist {
+            display:none;
+        }
+    </style>
+
+    <h3>Novo Post</h3>
+
+    <form action="" method="post" enctype='multipart/form-data'>
+
+      {% csrf_token %}
+      <table>
+          {{ form }}
+      </table>
+      <input type="submit" value="Novo Post">
+
+    </form>
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "bandas/layout.html" %}
+
+{% block title %}Banda: {{ banda.nome }}{% endblock %}
+
+{% block content %}
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'bandas/estilos.css' %}">
+    <style>
+      {% block style %}
+      {% endblock %}
+    </style>
+
+    <h1>{{ banda.nome }}</h1>
+    <p>Número de membros: {{ banda.numero_membros }}</p>
+    <p>Nacionalidade: {{ banda.nacionalidade }}</p>
+    <p>Ano de criação: {{ banda.ano_criacao }}</p>
+    <img src="{{ banda.foto_Banda.url }}" alt="Foto da banda">
+    <div class="biografia">
+        <p>Biografia: {{ banda.biografia }}</p>
+    </div>
+
+    <h1>Álbuns da Banda</h1>
+    <ul>
+        {% for album in albums %}
+            <li>
+                <a href="{% url 'bandas:album' album.id %}" class="linksAlbum">{{ album.nome }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'bandas:criaAlbum' %}">
+            <button>Inserir novo Album</button>
+        </a>
+
+        <a href="{% url 'bandas:editaBanda' banda.id %}">
+            <button>Edita Banda</button>
+        </a>
+
+        <a href="{% url 'bandas:apagaBanda' banda.id %}">
+            <button>Apagar a Banda</button>
+        </a>
+    {% endif %}
+{% endblock %}
+
+>

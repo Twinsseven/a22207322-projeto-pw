@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Título Padrão{% endblock %}</title>
+    {% load static %}
+    <script src="https://kit.fontawesome.com/4c944539b7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'curso/estilos.css' %}">
+    <style>
+      {% block style %}
+      {% endblock %}
+    </style>
+</head>
+<body>
+    <div class = "contentor">
+        <header>
+            <div class="button-container">
+                <a class="button" href="{% url 'curso:curso' %}"><i class="fa-solid fa-house"></i>Home</a>
+                <a class="button" href="{% url 'curso:disciplina' %}"><i class="fa-solid fa-book"></i>Disciplinas</a>
+            </div>
+            <h1>Portfolio</h1>
+            <div class="auth-buttons">
+                {% if not request.user.is_authenticated %}
+                    <a href="{% url 'curso:registo' %}" class="register-button">Registar</a>
+                    <a href="{% url 'curso:login' %}" class="login-button">Login</a>
+                {% else %}
+                    <p>Olá, {{ request.user.username }}!</p>
+                    <a href="{% url 'curso:logout' %}" class="logout-button">Logout</a>
+                {% endif %}
+            </div>
+        </header>
+
+        <div class="content">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Programação Web, Universidade Lusófona - Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+</body>
+</html>

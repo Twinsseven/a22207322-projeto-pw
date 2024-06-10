@@ -1,0 +1,24 @@
+{% extends 'festivais/layout.html' %}
+
+{% block title %}{{ festival.nome }}{% endblock %}
+
+{% block content %}
+    <style>
+        .links {
+            color: blue;
+            text-decoration: none;
+            display: block;
+            font-weight: bold;
+        }
+    </style>
+    <h2>{{ festival.nome }}</h2>
+    <h3>Bandas:</h3>
+    <ul>
+        {% for banda in festival.bandas.all %}
+            <li>{{ banda.nome }}</li>
+        {% endfor %}
+    </ul>
+    <img src="{{ festival.imagem.url }}" alt="{{ festival.nome }}">
+    <p></p>
+    <a href="{% url 'festivais' %}" class="links">Voltar para os Festivais</a>
+{% endblock %}

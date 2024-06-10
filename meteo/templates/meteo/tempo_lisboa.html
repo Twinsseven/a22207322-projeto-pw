@@ -1,0 +1,13 @@
+{% extends 'meteo/layout.html' %}
+{% block title %}Previsão de Cidades{% endblock %}v
+{% block content %}
+    <div class="weather-box">
+        <div class="weather-info">
+            <p>Cidade: {{ cidade }}</p>
+            <p>Data: {{ data }}</p>
+            <p>Temperatura Mínima: {{ temp_min }} °C</p>
+            <p>Temperatura Máxima: {{ temp_max }} °C</p>
+        </div>
+        <img src="{{ icone }}" alt="Ícone do Tempo">
+    </div>
+{% endblock %}

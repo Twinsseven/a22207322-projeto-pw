@@ -1,0 +1,28 @@
+{% extends "curso/layout.html" %}
+
+{% block title %}Portfolio{% endblock %}
+
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'curso/estilos.css' %}">
+    <style>
+      {% block style %}
+      {% endblock %}
+    </style>
+    <h2>Bem vindo ao curso de Engenharia Informática</h2>
+
+    <div class="container">
+        <div class="column">
+            <h3>Apresentação</h3>
+            <p>{{ curso.apresentacao }}</p>
+        </div>
+        <div class="column">
+            <h3>Objetivos</h3>
+            <p>{{ curso.objetivos }}</p>
+        </div>
+        <div class="column">
+            <h3>Competências</h3>
+            <p>{{ curso.competencias }}</p>
+        </div>
+    </div>
+{% endblock %}

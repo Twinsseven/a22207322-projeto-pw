@@ -1,0 +1,180 @@
+body {
+    font-family: "Copperplate Gothic", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.contentor {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "content"
+        "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+@media (min-width: 1200px) {
+    .contentor {
+        grid-template-areas:
+            "header header header"
+            "content content content"
+            "footer footer footer";
+    }
+}
+
+header {
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #00BFFF;
+    color: white;
+    padding: 20px;
+}
+
+.content {
+    grid-area: content;
+    margin: 20px;
+    padding-bottom: 80px;
+}
+
+footer {
+    grid-area: footer;
+    background-color: #00BFFF;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.auth-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.login-button,
+.register-button {
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px; /* Espaço entre os botões */
+}
+
+.login-button:hover,
+.register-button:hover {
+    background-color: darkblue; /* Muda a cor ao passar o mouse */
+}
+
+.botao-inicio {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;;
+    display: block;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+h3, h4, h5 {
+    font-family: 'Gill Sans', sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.column {
+    flex: 1;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 0px;
+}
+
+.button {
+    border: none;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 8px;
+}
+
+.links {
+    color: #6495ED;
+    text-decoration: none;
+    display: block;
+    font-weight: bold;
+}
+
+/*-------------------------------------------------------------------LOGIN----------------------------------------------------------------------------------------------- */
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/*---------------------------------------------------------------------------REGISTO--------------------------------------------------------------------------------------*/
+.login-container,
+.registo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.login-form,
+.registo-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #00BFFF;
+    border-radius: 8px;
+}
+
+.registo-form input[type="text"],
+.registo-form input[type="email"],
+.registo-form input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-form input[type="submit"],
+.registo-form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: blue;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+}

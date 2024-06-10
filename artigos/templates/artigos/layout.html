@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Título Padrão{% endblock %}</title>
+    <script src="https://kit.fontawesome.com/4c944539b7.js" crossorigin="anonymous"></script>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'artigos/estilos.css' %}">
+    <style>
+      {% block style %}
+      {% endblock %}
+    </style>
+</head>
+<body>
+    <div class = "contentor">
+        <header>
+        <div class="left-buttons">
+            <a href="{% url 'artigos:posts' %}" class="botao-inicio">
+                <p><i class="fa-solid fa-house"></i>Home</p>
+            </a>
+        </div>
+        <h1>Reddit da Feira</h1>
+            <div class="right-buttons">
+                {% if not request.user.is_authenticated %}
+                    <a href="{% url 'artigos:registo' %}" class="register-button">Registar</a>
+                    <a href="{% url 'artigos:login' %}" class="login-button">Login</a>
+                {% else %}
+                    <p>Olá, {{ request.user.username }}!</p>
+                    <a href="{% url 'artigos:logout' %}" class="logout-button">Logout</a>
+                {% endif %}
+            </div>
+        </header>
+
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Programação Web, Universidade Lusófona - Todos os direitos reservados.</p>
+    </footer>
+    </div>
+</body>
+</html>

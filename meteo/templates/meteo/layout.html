@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Título Padrão{% endblock %}</title>
+    {% load static %}
+     <script src="https://kit.fontawesome.com/4c944539b7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'meteo/estilos.css' %}">
+    <style>
+      {% block style %}
+      {% endblock %}
+    </style>
+</head>
+<body>
+    <header>
+        <a class="button" href="{% url 'meteo:tempo_lisboa' %}"><i class="fa-solid fa-cloud-sun-rain"></i>Lisboa</a>
+        <a class="button" href="{% url 'meteo:previsao_tempo' %}"><i class="fa-solid fa-cloud-moon-rain"></i>Outras Regiões</a>
+        <a class="button" href="{% url 'meteo:api_documentacao' %}"><i class="fa-solid fa-code"></i></i>API</a>
+        <h1>Meteorologia</h1>
+    </header>
+
+    <div class="content">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Programação Web, Universidade Lusófona - Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

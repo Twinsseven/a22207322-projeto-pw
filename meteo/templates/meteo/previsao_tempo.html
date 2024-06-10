@@ -1,0 +1,34 @@
+{% extends 'meteo/layout.html' %}
+{% block title %}Previsão do Tempo{% endblock %}
+
+{% block content %}
+
+<h1>Previsão Meteorológica</h1>
+
+<form action="" method="get">
+    <label for="cidade">Selecione a cidade:</label>
+    <select name="cidade" id="cidade">
+        {% for id, nome in distritos %}
+            <option value="{{ id }}" {% if id == cidade_selecionada %}selected{% endif %}>
+            {{ nome }}
+            </option>
+        {% endfor %}
+    </select>
+    <button type="submit">Ver Previsão</button>
+    </form>
+    {% if previsao %}
+        <h2>Previsão para os próximos 5 dias</h2>
+        <ul>
+            {% for dia in previsao %}
+                <li class="weather-box">
+                    <div class="weather-info">
+                        <p>Data: {{ dia.data }}</p>
+                        <p>Temperatura Mínima: {{ dia.temp_min }} °C</p>
+                        <p>Temperatura Máxima: {{ dia.temp_max }} °C</p>
+                    </div>
+                    <img src="{{ dia.icone }}" alt="Ícone do tempo" class="weather-icon">
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

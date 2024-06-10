@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paris, França</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eaf4fc;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #007bff;
+        }
+        footer {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Paris, França</h1>
+    <p>Paris é conhecida como a Cidade Luz e é famosa por suas atrações icônicas, como a Torre Eiffel e o Louvre.</p>
+    <p>Além desses monumentos famosos, Paris também é lar de:</p>
+    <ul>
+        <li>A Catedral de Notre-Dame, uma obra-prima da arquitetura gótica.</li>
+        <li>O Museu d'Orsay, que abriga uma vasta coleção de arte impressionista e pós-impressionista.</li>
+        <li>O Arco do Triunfo, construído por Napoleão Bonaparte para comemorar suas vitórias militares.</li>
+        <li>O Palácio de Versalhes, uma suntuosa residência real conhecida por seus belos jardins e salões opulentos.</li>
+    </ul>
+    <p><a href="{% url 'novaapp:index' %}">Voltar atrás</a></p>
+
+    <footer>
+        <p>&copy; 2024 Programação Web, Universidade Lusófona - Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

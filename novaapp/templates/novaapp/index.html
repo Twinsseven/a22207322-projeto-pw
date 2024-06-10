@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinos de Sonho</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eaf4fc;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            min-height: 100vh;
+        }
+        h1 {
+            color: #007bff;
+            text-align: center;
+        }
+        p {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+        li {
+            display: inline-block;
+            margin: 0 10px;
+            vertical-align: top;
+        }
+        .link-paris, .link-toquio {
+            text-align: center;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+        .imagem {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .imagem img {
+            width: 500px; /* Ajuste o tamanho das imagens conforme necessário */
+            height: auto;
+            display: block;
+            margin: 0 auto; /* Centraliza a imagem horizontalmente */
+        }
+        footer {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            width: 100%;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bem-vindo à Minha Agência de Viagens</h1>
+    <p>Escolha o seu destino de sonhos:</p>
+    <ul>
+        <li class="link-paris">
+            <a href="{% url 'novaapp:paris' %}">Paris</a>
+            <div class="imagem">
+                <img src="../../../media/paris.jpeg" alt="Paris">
+            </div>
+        </li>
+        <li class="link-toquio">
+            <a href="{% url 'novaapp:toquio' %}">Tóquio</a>
+            <div class="imagem">
+                <img src="../../../media/tokyo.jpeg" alt="Tóquio">
+            </div>
+        </li>
+    </ul>
+    <footer>
+        <p>&copy; 2024 Programação Web, Universidade Lusófona - Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

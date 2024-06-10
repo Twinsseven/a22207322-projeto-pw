@@ -1,0 +1,54 @@
+{% extends "curso/layout.html" %}
+
+{% block title %}Disciplina: {{ disciplina.nome }}{% endblock %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'curso/estilos.css' %}">
+<div class="disciplina-detail-container">
+    <h2>Detalhes da Disciplina</h2>
+    <h3>{{ disciplina.nome }}</h3>
+    <p><strong>Ano:</strong> {{ disciplina.ano }}</p>
+    <p><strong>Semestre:</strong> {{ disciplina.semestre }}</p>
+    <p><strong>ECTS:</strong> {{ disciplina.ects }}</p>
+    <p><strong>Tipo Curricular:</strong> {{ disciplina.curricular }}</p>
+    <p><strong>Área Científica:</strong> {{ disciplina.area_cientifica.nome }}</p>
+    <p><strong>Docentes:</strong>
+        <ul>
+            {% for docente in disciplina.docente_set.all %}
+                <li>{{ docente.nome }}</li>
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'curso:editaDocente' docente.id %}">
+                        <button>Edita Docente</button>
+                    </a>
+
+                    <a href="{% url 'curso:apagaDocente' docente.id %}">
+                        <button>Apagar Docente</button>
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </p>
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'curso:criaDocente' %}">
+            <button>Inserir novo Docente</button>
+        </a>
+    {% endif %}
+    {% if disciplina.projeto %}
+        <p><strong>Projeto:</strong>
+            <a href="{% url 'curso:projeto' disciplina.projeto.id %}" >
+                <i class="fa-solid fa-diagram-project"></i>
+            </a>
+        </p>
+    {% else %}
+        <p><strong>Projeto:</strong> Não há projeto associado a esta disciplina.</p>
+    {% endif %}
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'curso:criaProjeto' %}">
+            <button>Inserir novo Projeto</button>
+        </a>
+    {% endif %}
+
+
+</div>
+{% endblock %}

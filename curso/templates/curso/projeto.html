@@ -1,0 +1,30 @@
+{% extends "curso/layout.html" %}
+
+{% block title %}Projeto de {{ projeto.disciplina.nome }}{% endblock %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'curso/estilos.css' %}">
+<div class="projeto-detail-container">
+    <h2>Projeto de {{ projeto.disciplina.nome }}</h2>
+    <p><strong>Descrição:</strong> {{ projeto.descricao }}</p>
+    <p><strong>Conceitos Usados:</strong> {{ projeto.conceitos_usados }}</p>
+    <p><strong>Tecnologias Usadas:</strong> {{ projeto.tecnologias_usadas }}</p>
+    <p>
+        <strong>GitHub:</strong>
+        <a href="{{ projeto.github }}" target="_blank">Link para o GitHub</a>
+    </p>
+    <p>
+        <strong>Vídeo:</strong>
+        <a href="{{ projeto.video }}" target="_blank">Link para o Vídeo</a>
+    </p>
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'curso:editaProjeto' projeto.id %}">
+            <button>Edita Projeto</button>
+        </a>
+        <a href="{% url 'curso:apagaProjeto' projeto.id %}">
+            <button>Apaga Projeto</button>
+        </a>
+    {% endif %}
+</div>
+{% endblock %}

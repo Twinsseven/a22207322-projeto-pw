@@ -1,0 +1,30 @@
+{% extends 'festivais/layout.html' %}
+
+{% block content %}
+    <style>
+        .links {
+            color: blue;
+            text-decoration: none;
+            display: block;
+            font-weight: bold;
+        }
+    </style>
+    <ul>
+        {% for localizacao in localizacoes %}
+            <h2>{{ localizacao.nome }}</h2>
+            <ul>
+                {% for festival in localizacao.festival_set.all %}
+                    <li>
+                        <a href="{% url 'festival' festival.pk %}" class = "links">
+                            {{ festival.nome }}
+                        </a>
+                        - Bandas:
+                        {% for banda in festival.bandas.all %}
+                            {{ banda.nome }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </ul>
+{% endblock %}
